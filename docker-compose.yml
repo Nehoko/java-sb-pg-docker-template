@@ -2,10 +2,12 @@ version: '3'
 
 services:
   app:
-    image: 'drone:latest'
+    image: 'drone:0.0.1-SNAPSHOT'
     build:
       context: ./
     container_name: app
+    ports:
+      - "8080:8080"
     depends_on:
       - db
     environment:
@@ -18,9 +20,7 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
-        delay: 3s
         max_attempts: 5
-        window: 60s
   db:
     image: 'postgres:latest'
     container_name: db
