@@ -1,1 +1,13 @@
-
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL} #jdbc:postgresql://localhost:5432/drone
+    hikari:
+      username: ${SPRING_DATASOURCE_USERNAME} #admin
+      password: ${SPRING_DATASOURCE_PASSWORD} #drone
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: create
+    database: postgresql
+    open-in-view: false
