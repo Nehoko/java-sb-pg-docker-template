@@ -5,6 +5,8 @@ import com.musala.drone.entity.Medication;
 import com.musala.drone.enums.drone.DroneState;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 /**
  * Prevent the drone from being loaded with more weight that it can carry;
  * Prevent the drone from being in LOADING state if the battery level is below 25%;
@@ -14,6 +16,8 @@ import org.springframework.stereotype.Service;
 public class DroneValidationService {
 
     public static final int BATTERY_CAPACITY = 25;
+    public static final int MAX_WEIGHT_LIMIT = 500;
+    public static final int MAX_BATTERY_CAPACITY = 100;
 
     /**
      * Prevent the drone from being loaded with more weight that it can carry;
@@ -65,5 +69,55 @@ public class DroneValidationService {
         boolean batteryLevelIsBelow = 25 > batteryCapacity;
 
         return !(stateIsLoading && batteryLevelIsBelow);
+    }
+
+    public boolean validateSerialNumber(String droneSerialNumber) {
+        return droneSerialNumber!=null
+                && !droneSerialNumber.isEmpty()
+                && !droneSerialNumber.isBlank()
+                && !(droneSerialNumber.length() > 100);
+    }
+
+    public boolean validateWeightLimit(Drone drone) {
+        if (drone == null || drone.getWeightLimit() == null || drone.getWeightLimit() == 0) return true;
+
+        return MAX_WEIGHT_LIMIT <= drone.getWeightLimit();
+    }
+
+    public boolean validateBatteryCapacity(Drone drone) {
+        if (drone == null || drone.getBatteryCapacity() == null || drone.getBatteryCapacity() == 0) return true;
+
+        return MAX_BATTERY_CAPACITY >= drone.getBatteryCapacity();
+
+    }
+
+    public Optional<String> validate(Drone drone) {
+        boolean serialNumberIsValid = this.validateSerialNumber(drone.getSerialNumber());
+        boolean stateIsValid = this.validateState(drone);
+        boolean weightIsValid = this.validateWeight(drone);
+        boolean maxWeightIsValid = this.validateWeightLimit(drone);
+        boolean batteryCapacityIsValid = this.validateBatteryCapacity(drone);
+
+        if (!serialNumberIsValid) {
+            return Optional.of(String.format("Invalid serial number: %s", drone.getSerialNumber()));
+        }
+
+        if (!stateIsValid) {
+            return Optional.of(String.format("Drone with serial number: %s has low battery", drone.getSerialNumber()));
+        }
+
+        if (!weightIsValid) {
+            return Optional.of(String.format("Drone with serial number: %s is overloaded", drone.getSerialNumber()));
+        }
+
+        if (!maxWeightIsValid) {
+            return Optional.of(String.format("Drone with serial number: %s has weight limit more than MAX (500g)", drone.getSerialNumber()));
+        }
+
+        if (!batteryCapacityIsValid) {
+            return Optional.of(String.format("Drone with serial number: %s has battery capacity more than MAX (100)", drone.getSerialNumber()));
+        }
+
+        return Optional.empty();
     }
 }

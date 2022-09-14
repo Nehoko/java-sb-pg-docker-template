@@ -9,11 +9,13 @@ import com.musala.drone.mapper.DroneMapper;
 import com.musala.drone.mapper.MedicationMapper;
 import com.musala.drone.repository.DroneRepository;
 import com.musala.drone.validation.DroneValidationService;
+import com.musala.drone.validation.MedicationValidationService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DroneService {
@@ -22,14 +24,18 @@ public class DroneService {
     private final DroneMapper droneMapper;
     private final MedicationMapper medicationMapper;
     private final DroneValidationService droneValidationService;
+    private final MedicationValidationService medicationValidationService;
 
     public DroneService(DroneRepository droneRepository,
                         DroneMapper droneMapper,
-                        MedicationMapper medicationMapper, DroneValidationService droneValidationService) {
+                        MedicationMapper medicationMapper,
+                        DroneValidationService droneValidationService,
+                        MedicationValidationService medicationValidationService) {
         this.droneRepository = droneRepository;
         this.droneMapper = droneMapper;
         this.medicationMapper = medicationMapper;
         this.droneValidationService = droneValidationService;
+        this.medicationValidationService = medicationValidationService;
     }
 
     @Transactional
@@ -40,8 +46,17 @@ public class DroneService {
 
     @Transactional
     public void loadDrone(List<MedicationDto> medicationDtoList, String droneSerialNumber) {
+
+        if (medicationDtoList == null || medicationDtoList.isEmpty()) {
+            return;
+        }
+
+        if (droneValidationService.validateSerialNumber(droneSerialNumber)) {
+            throw new IllegalArgumentException(String.format("Invalid drone serial number: %s", droneSerialNumber));
+        }
+
         Drone drone = droneRepository.findDroneBySerialNumber(droneSerialNumber)
-                .orElseThrow(() -> new RuntimeException(String.format("drone with serial number: %s has not found", droneSerialNumber)));
+                .orElseThrow(() -> new RuntimeException(String.format("Drone with serial number: %s has not found", droneSerialNumber)));
 
         List<Medication> medicationList = medicationMapper.toEntityList(medicationDtoList);
 
@@ -54,7 +69,7 @@ public class DroneService {
     @Transactional(readOnly = true)
     public List<MedicationDto> getMedications(String droneSerialNumber) {
         Drone drone = droneRepository.findDroneBySerialNumber(droneSerialNumber)
-                .orElseThrow(() -> new RuntimeException(String.format("drone with serial number: %s has not found", droneSerialNumber)));
+                .orElseThrow(() -> new RuntimeException(String.format("Drone with serial number: %s has not found", droneSerialNumber)));
 
         return medicationMapper.toDtoList(drone.getMedicationList());
 
@@ -62,8 +77,13 @@ public class DroneService {
 
     @Transactional(readOnly = true)
     public int getBatteryLevel(String droneSerialNumber) {
+
+        if (droneValidationService.validateSerialNumber(droneSerialNumber)) {
+            throw new IllegalArgumentException(String.format("Invalid drone serial number: %s", droneSerialNumber));
+        }
+
         Drone drone = droneRepository.findDroneBySerialNumber(droneSerialNumber)
-                .orElseThrow(() -> new RuntimeException(String.format("drone with serial number: %s has not found", droneSerialNumber)));
+                .orElseThrow(() -> new RuntimeException(String.format("Drone with serial number: %s has not found", droneSerialNumber)));
 
         return drone.getBatteryCapacity();
     }
@@ -84,15 +104,22 @@ public class DroneService {
     }
 
     private void validateAndSave(Drone drone) {
-        boolean stateIsValid = droneValidationService.validateState(drone);
-        boolean weightIsValid = droneValidationService.validateWeight(drone);
+        Optional<String> droneError = droneValidationService.validate(drone);
 
-        if (!stateIsValid) {
-            throw new RuntimeException(String.format("drone with serial number: %s has low battery", drone.getSerialNumber()));
+        if (droneError.isPresent()) {
+            throw new RuntimeException(droneError.get());
         }
 
-        if (!weightIsValid) {
-            throw new RuntimeException(String.format("drone with serial number: %s is overloaded", drone.getSerialNumber()));
+        List<Medication> medicationList = drone.getMedicationList();
+
+        if (medicationList != null && !medicationList.isEmpty()) {
+            for (Medication medication : medicationList) {
+                Optional<String> medicationError = medicationValidationService.validateMedication(medication);
+
+                if (medicationError.isPresent()) {
+                    throw new RuntimeException(medicationError.get());
+                }
+            }
         }
 
         droneRepository.save(drone);
