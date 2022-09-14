@@ -27,6 +27,7 @@ public class Drone {
     private String serialNumber;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private DroneModel model;
 
     @Column(nullable = false)
@@ -36,6 +37,7 @@ public class Drone {
     private Integer batteryCapacity;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private DroneState state;
 
     @ToString.Exclude

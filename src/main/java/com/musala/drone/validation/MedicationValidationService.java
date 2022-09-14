@@ -25,9 +25,9 @@ public class MedicationValidationService {
         }
 
         return medication.getCode() != null
-                && !medication.getName().isEmpty()
-                && !medication.getName().isBlank()
-                && medication.getName().matches("^[A-Z0-9_]+$");
+                && !medication.getCode().isEmpty()
+                && !medication.getCode().isBlank()
+                && medication.getCode().matches("^[A-Z0-9_]+$");
     }
 
     public Optional<String> validateMedication(Medication medication) {

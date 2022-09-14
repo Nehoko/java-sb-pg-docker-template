@@ -22,12 +22,12 @@ public class DroneController {
         return "Pong";
     }
 
-    @PostMapping(path = "register-drone", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "drone/register", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void registerDrone(@RequestBody DroneDto drone) {
         droneService.registerDrone(drone);
     }
 
-    @PostMapping(path = "drone/{droneSerialNumber}/loadDrone", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "drone/{droneSerialNumber}/load", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void loadDrone(@RequestBody List<MedicationDto> medicationList, @PathVariable String droneSerialNumber) {
         droneService.loadDrone(medicationList, droneSerialNumber);
     }

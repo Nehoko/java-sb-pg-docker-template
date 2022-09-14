@@ -43,16 +43,18 @@ public class DroneMapper implements Mapper<Drone, DroneDto> {
                 droneDto.getState(),
                 new ArrayList<>()
         );
+        if (droneDto.getMedicationList() != null && !droneDto.getMedicationList().isEmpty()) {
 
-        List<Medication> medicationList = new ArrayList<>(droneDto.getMedicationList().size());
+            List<Medication> medicationList = new ArrayList<>(droneDto.getMedicationList().size());
 
-        for (MedicationDto dto : droneDto.getMedicationList()) {
-            Medication medication = medicationMapper.toEntity(dto);
-            medication.setDrone(drone);
-            medicationList.add(medication);
+            for (MedicationDto dto : droneDto.getMedicationList()) {
+                Medication medication = medicationMapper.toEntity(dto);
+                medication.setDrone(drone);
+                medicationList.add(medication);
+            }
+            drone.setMedicationList(medicationList);
         }
 
-        drone.setMedicationList(medicationList);
 
         return drone;
     }

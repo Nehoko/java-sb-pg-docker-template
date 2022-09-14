@@ -17,7 +17,7 @@ public class DronesBatteryJob {
         this.droneService = droneService;
     }
 
-    @Scheduled(cron = "*/5 * * * * *")
+    @Scheduled(cron = "*/15 * * * * *")
     public void checkBatteryLevelsAndLogIt() {
         Map<String, Integer> serialNumberBatteryMap = droneService.getAllSerialNumberAndBatteryLevel();
         if (serialNumberBatteryMap.isEmpty()) {

@@ -53,7 +53,7 @@ public class DroneService {
             return;
         }
 
-        if (droneValidationService.validateSerialNumber(droneSerialNumber)) {
+        if (!droneValidationService.validateSerialNumber(droneSerialNumber)) {
             throw new IllegalArgumentException(String.format("Invalid drone serial number: %s", droneSerialNumber));
         }
 
