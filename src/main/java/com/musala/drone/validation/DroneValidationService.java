@@ -2,7 +2,7 @@ package com.musala.drone.validation;
 
 import com.musala.drone.entity.Drone;
 import com.musala.drone.entity.Medication;
-import com.musala.drone.enums.drone.DroneState;
+import com.musala.drone.enums.DroneState;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

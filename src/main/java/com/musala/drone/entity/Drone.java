@@ -1,7 +1,7 @@
 package com.musala.drone.entity;
 
-import com.musala.drone.enums.drone.DroneModel;
-import com.musala.drone.enums.drone.DroneState;
+import com.musala.drone.enums.DroneModel;
+import com.musala.drone.enums.DroneState;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

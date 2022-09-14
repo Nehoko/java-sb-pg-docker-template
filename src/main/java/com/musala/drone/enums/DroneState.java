@@ -1,4 +1,4 @@
-package com.musala.drone.enums.drone;
+package com.musala.drone.enums;
 
 public enum DroneState {
     IDLE, LOADING, LOADED, DELIVERING, DELIVERED, RETURNING

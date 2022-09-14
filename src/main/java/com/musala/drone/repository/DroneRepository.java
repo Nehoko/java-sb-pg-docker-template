@@ -1,7 +1,7 @@
 package com.musala.drone.repository;
 
 import com.musala.drone.entity.Drone;
-import com.musala.drone.enums.drone.DroneState;
+import com.musala.drone.enums.DroneState;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

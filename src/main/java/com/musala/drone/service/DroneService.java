@@ -4,7 +4,7 @@ import com.musala.drone.dto.DroneDto;
 import com.musala.drone.dto.MedicationDto;
 import com.musala.drone.entity.Drone;
 import com.musala.drone.entity.Medication;
-import com.musala.drone.enums.drone.DroneState;
+import com.musala.drone.enums.DroneState;
 import com.musala.drone.mapper.DroneMapper;
 import com.musala.drone.mapper.MedicationMapper;
 import com.musala.drone.repository.DroneRepository;
@@ -15,7 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class DroneService {
@@ -101,6 +103,13 @@ public class DroneService {
         }
 
         return droneMapper.toDtoList(availableDroneList);
+    }
+
+    public Map<String, Integer> getAllSerialNumberAndBatteryLevel() {
+        return droneRepository
+                .findAll()
+                .stream()
+                .collect(Collectors.toUnmodifiableMap(Drone::getSerialNumber, Drone::getBatteryCapacity));
     }
 
     private void validateAndSave(Drone drone) {

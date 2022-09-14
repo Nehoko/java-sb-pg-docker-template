@@ -11,3 +11,10 @@ spring:
       ddl-auto: create
     database: postgresql
     open-in-view: false
+
+logging:
+  file:
+    path: /var/log
+    name: drone.log
+  level:
+    com.musala.drone: info
