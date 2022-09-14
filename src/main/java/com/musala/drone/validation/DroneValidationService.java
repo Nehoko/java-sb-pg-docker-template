@@ -15,9 +15,9 @@ import java.util.Optional;
 @Service
 public class DroneValidationService {
 
-    public static final int BATTERY_CAPACITY = 25;
-    public static final int MAX_WEIGHT_LIMIT = 500;
+    public static final int MIN_BATTERY_CAPACITY = 25;
     public static final int MAX_BATTERY_CAPACITY = 100;
+    public static final int MAX_WEIGHT_LIMIT = 500;
 
     /**
      * Prevent the drone from being loaded with more weight that it can carry;
@@ -66,7 +66,7 @@ public class DroneValidationService {
         }
 
         boolean stateIsLoading = DroneState.LOADING.equals(drone.getState());
-        boolean batteryLevelIsBelow = 25 > batteryCapacity;
+        boolean batteryLevelIsBelow = MIN_BATTERY_CAPACITY > batteryCapacity;
 
         return !(stateIsLoading && batteryLevelIsBelow);
     }

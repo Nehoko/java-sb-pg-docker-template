@@ -93,7 +93,7 @@ public class DroneService {
         List<Drone> availableDroneList = droneRepository
                 .findAllByStateIsInAndBatteryCapacityGreaterThanEqual(
                         List.of(DroneState.IDLE, DroneState.LOADING),
-                        DroneValidationService.BATTERY_CAPACITY
+                        DroneValidationService.MIN_BATTERY_CAPACITY
                 );
 
         if (availableDroneList == null || availableDroneList.isEmpty()) {
