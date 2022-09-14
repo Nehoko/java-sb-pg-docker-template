@@ -36,6 +36,17 @@ public class Medication {
     @ManyToOne(fetch = FetchType.LAZY)
     private Drone drone;
 
+    public Medication() {
+    }
+
+    public Medication(Long id, String name, Integer weight, String code, String picture) {
+        this.id = id;
+        this.name = name;
+        this.weight = weight;
+        this.code = code;
+        this.picture = picture;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

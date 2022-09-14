@@ -2,6 +2,7 @@ package com.musala.drone.entity;
 
 import com.musala.drone.enums.drone.DroneModel;
 import com.musala.drone.enums.drone.DroneState;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,6 +15,7 @@ import java.util.Objects;
 @Table(name = "drone")
 @Getter
 @Setter
+@AllArgsConstructor
 @ToString
 public class Drone {
 
@@ -39,6 +41,10 @@ public class Drone {
     @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Medication> medicationList;
+
+    public Drone() {
+
+    }
 
     public void addMedication(Medication medication) {
         this.medicationList.add(medication);
