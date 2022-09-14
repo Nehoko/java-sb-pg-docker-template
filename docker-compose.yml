@@ -12,7 +12,7 @@ services:
       - db
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/drone
-      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_USERNAME=drone
       - SPRING_DATASOURCE_PASSWORD=drone
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     tty: true
@@ -25,7 +25,7 @@ services:
     image: 'postgres:latest'
     container_name: db
     healthcheck:
-      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "admin" ]
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "drone" ]
       timeout: 45s
       interval: 10s
       retries: 10
@@ -33,10 +33,10 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_USER=admin
+      - POSTGRES_USER=drone
       - POSTGRES_PASSWORD=drone
       - POSTGRES_DB=drone
-      - APP_DB_USER=admin
+      - APP_DB_USER=drone
       - APP_DB_PASS=drone
       - APP_DB_NAME=drone
     volumes:

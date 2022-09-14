@@ -1,5 +1,8 @@
 ## Drones
 
+### Run
+`./mvnw spring-boot:build-image -DskipTests && docker-compose up -d`
+
 [[_TOC_]]
 
 ---

@@ -6,13 +6,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "drone")
+@Table(name = "drone")
 @Getter
 @Setter
 @ToString
@@ -36,6 +35,26 @@ public class Drone {
 
     @Column(nullable = false)
     private DroneState state;
+
+    @ToString.Exclude
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Medication> medicationList;
+
+    public void addMedication(Medication medication) {
+        this.medicationList.add(medication);
+        medication.setDrone(this);
+    }
+
+    public void removeMedication(Medication medication) {
+        this.medicationList.remove(medication);
+        medication.setDrone(null);
+    }
+
+    public void addAllMedications(List<Medication> medicationList) {
+        for (Medication medication : medicationList) {
+            addMedication(medication);
+        }
+    }
 
     @Override
     public boolean equals(Object o) {

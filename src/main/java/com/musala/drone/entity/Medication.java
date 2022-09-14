@@ -3,17 +3,17 @@ package com.musala.drone.entity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.FieldNameConstants;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "medication")
+@Table(name = "medication")
 @Getter
 @Setter
 @ToString
+@FieldNameConstants
 public class Medication {
 
     @Id
@@ -31,6 +31,10 @@ public class Medication {
 
     @Column(nullable = false)
     private String picture;
+
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Drone drone;
 
     @Override
     public boolean equals(Object o) {
