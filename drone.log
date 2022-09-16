@@ -432,3 +432,67 @@ Caused by: java.lang.IllegalArgumentException: URL must start with 'jdbc'
 2022-09-16 17:07:28.394  INFO 92648 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-09-16 17:07:28.395  INFO 92648 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-09-16 17:07:28.396  INFO 92648 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-16 17:28:45.738  INFO 94112 --- [main] c.m.d.v.DroneValidationServiceTest       : Starting DroneValidationServiceTest using Java 17.0.2 on MacBook-Air-Ilya.local with PID 94112 (started by idmikhailov in /Users/idmikhailov/study/java/musala/ilya-mikhailov)
+2022-09-16 17:28:45.739  INFO 94112 --- [main] c.m.d.v.DroneValidationServiceTest       : No active profile set, falling back to 1 default profile: "default"
+2022-09-16 17:28:46.019  INFO 94112 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-16 17:28:46.045  INFO 94112 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 1 JPA repository interfaces.
+2022-09-16 17:28:46.284  INFO 94112 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-16 17:28:46.310  INFO 94112 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-16 17:28:46.385  INFO 94112 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-16 17:28:46.439  INFO 94112 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-16 17:28:46.572  INFO 94112 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-16 17:28:46.582  INFO 94112 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-09-16 17:28:46.930  INFO 94112 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-16 17:28:46.934  INFO 94112 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-16 17:28:47.444  INFO 94112 --- [main] c.m.d.v.DroneValidationServiceTest       : Started DroneValidationServiceTest in 2.084 seconds (JVM running for 2.593)
+2022-09-16 17:28:47.534  INFO 94112 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-16 17:28:47.535  INFO 94112 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-16 17:28:47.537  INFO 94112 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-16 17:46:41.495  INFO 95215 --- [main] c.m.d.v.DroneValidationServiceTest       : Starting DroneValidationServiceTest using Java 17.0.2 on MacBook-Air-Ilya.local with PID 95215 (started by idmikhailov in /Users/idmikhailov/study/java/musala/ilya-mikhailov)
+2022-09-16 17:46:41.496  INFO 95215 --- [main] c.m.d.v.DroneValidationServiceTest       : No active profile set, falling back to 1 default profile: "default"
+2022-09-16 17:46:41.968  INFO 95215 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-16 17:46:41.994  INFO 95215 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 1 JPA repository interfaces.
+2022-09-16 17:46:42.318  INFO 95215 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-16 17:46:42.356  INFO 95215 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-16 17:46:42.446  INFO 95215 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-16 17:46:42.497  INFO 95215 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-16 17:46:42.673  INFO 95215 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-16 17:46:42.682  INFO 95215 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-09-16 17:46:43.135  INFO 95215 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-16 17:46:43.140  INFO 95215 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-16 17:46:43.738  INFO 95215 --- [main] c.m.d.v.DroneValidationServiceTest       : Started DroneValidationServiceTest in 2.526 seconds (JVM running for 3.098)
+2022-09-16 17:46:43.889  INFO 95215 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-16 17:46:43.890  INFO 95215 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-16 17:46:43.894  INFO 95215 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-16 17:59:01.212  INFO 96066 --- [main] c.m.d.v.DroneValidationServiceTest       : Starting DroneValidationServiceTest using Java 17.0.2 on MacBook-Air-Ilya.local with PID 96066 (started by idmikhailov in /Users/idmikhailov/study/java/musala/ilya-mikhailov)
+2022-09-16 17:59:01.212  INFO 96066 --- [main] c.m.d.v.DroneValidationServiceTest       : No active profile set, falling back to 1 default profile: "default"
+2022-09-16 17:59:01.489  INFO 96066 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-16 17:59:01.509  INFO 96066 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 1 JPA repository interfaces.
+2022-09-16 17:59:01.742  INFO 96066 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-16 17:59:01.769  INFO 96066 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-16 17:59:01.843  INFO 96066 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-16 17:59:01.895  INFO 96066 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-16 17:59:02.048  INFO 96066 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-16 17:59:02.058  INFO 96066 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-09-16 17:59:02.416  INFO 96066 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-16 17:59:02.420  INFO 96066 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-16 17:59:02.900  INFO 96066 --- [main] c.m.d.v.DroneValidationServiceTest       : Started DroneValidationServiceTest in 2.063 seconds (JVM running for 2.58)
+2022-09-16 17:59:02.990  INFO 96066 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-16 17:59:02.991  INFO 96066 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-16 17:59:02.992  INFO 96066 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-16 18:06:21.730  INFO 96559 --- [main] c.m.d.v.DroneValidationServiceTest       : Starting DroneValidationServiceTest using Java 17.0.2 on MacBook-Air-Ilya.local with PID 96559 (started by idmikhailov in /Users/idmikhailov/study/java/musala/ilya-mikhailov)
+2022-09-16 18:06:21.731  INFO 96559 --- [main] c.m.d.v.DroneValidationServiceTest       : No active profile set, falling back to 1 default profile: "default"
+2022-09-16 18:06:22.053  INFO 96559 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-16 18:06:22.078  INFO 96559 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 1 JPA repository interfaces.
+2022-09-16 18:06:22.342  INFO 96559 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-16 18:06:22.373  INFO 96559 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-16 18:06:22.460  INFO 96559 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-16 18:06:22.515  INFO 96559 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-16 18:06:22.661  INFO 96559 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-16 18:06:22.680  INFO 96559 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-09-16 18:06:23.077  INFO 96559 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-16 18:06:23.081  INFO 96559 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-16 18:06:23.623  INFO 96559 --- [main] c.m.d.v.DroneValidationServiceTest       : Started DroneValidationServiceTest in 2.054 seconds (JVM running for 2.588)
+2022-09-16 18:06:23.734  INFO 96559 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-16 18:06:23.735  INFO 96559 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-16 18:06:23.737  INFO 96559 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
