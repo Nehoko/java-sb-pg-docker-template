@@ -1,7 +1,30 @@
 ## Drones
 
+### Requirements
+- docker
+- docker-compose
+- java 17
+
+### Build
+#### MacOS or Linux
+`./build.sh`
+
+#### Windows
+`.\build.cmd`
+
 ### Run
-`./mvnw spring-boot:build-image -DskipTests && docker-compose up -d`
+#### MacOS or Linux
+`./start.sh`
+
+#### Windows
+`.\start.cmd`
+
+### Test
+#### MacOS or Linux
+`./test.sh`
+
+#### Windows
+`.\test.cmd`
 
 [[_TOC_]]
 
