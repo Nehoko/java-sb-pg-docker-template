@@ -81,7 +81,7 @@ public class DroneValidationService {
     public boolean validateWeightLimit(Drone drone) {
         if (drone == null || drone.getWeightLimit() == null || drone.getWeightLimit() == 0) return true;
 
-        return MAX_WEIGHT_LIMIT <= drone.getWeightLimit();
+        return MAX_WEIGHT_LIMIT >= drone.getWeightLimit();
     }
 
     public boolean validateBatteryCapacity(Drone drone) {

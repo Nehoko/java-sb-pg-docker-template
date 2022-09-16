@@ -80,7 +80,7 @@ public class DroneService {
     @Transactional(readOnly = true)
     public int getBatteryLevel(String droneSerialNumber) {
 
-        if (droneValidationService.validateSerialNumber(droneSerialNumber)) {
+        if (!droneValidationService.validateSerialNumber(droneSerialNumber)) {
             throw new IllegalArgumentException(String.format("Invalid drone serial number: %s", droneSerialNumber));
         }
 

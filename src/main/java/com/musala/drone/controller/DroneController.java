@@ -37,7 +37,6 @@ public class DroneController {
         return droneService.getMedications(droneSerialNumber);
     }
 
-    // check drone battery level for a given drone
     @GetMapping(path = "drone/{droneSerialNumber}/battery", produces = MediaType.APPLICATION_JSON_VALUE)
     public int getBatteryLevel(@PathVariable String droneSerialNumber) {
         return droneService.getBatteryLevel(droneSerialNumber);
