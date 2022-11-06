@@ -1,4 +1,4 @@
-package com.musala.drone;
+package ru.idmikhailov.template;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableScheduling
 @SpringBootApplication
-public class DroneApplication {
+public class TemplateApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DroneApplication.class, args);
+		SpringApplication.run(TemplateApplication.class, args);
 	}
 
 }

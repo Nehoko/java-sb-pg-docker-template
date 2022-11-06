@@ -1,6 +1,6 @@
 CREATE SEQUENCE IF NOT EXISTS hibernate_sequence START WITH 1 INCREMENT BY 1;
 
-CREATE TABLE drone
+CREATE TABLE template
 (
     id               BIGINT       NOT NULL,
     serial_number    VARCHAR(100) NOT NULL,
@@ -8,8 +8,8 @@ CREATE TABLE drone
     weight_limit     INTEGER      NOT NULL,
     battery_capacity INTEGER      NOT NULL,
     state            INTEGER      NOT NULL,
-    CONSTRAINT pk_drone PRIMARY KEY (id)
+    CONSTRAINT pk_template PRIMARY KEY (id)
 );
 
-ALTER TABLE drone
-    ADD CONSTRAINT uc_drone_serialnumber UNIQUE (serial_number);
+ALTER TABLE template
+    ADD CONSTRAINT uc_template_serialnumber UNIQUE (serial_number);

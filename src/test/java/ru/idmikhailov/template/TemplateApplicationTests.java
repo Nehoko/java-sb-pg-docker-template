@@ -1,10 +1,10 @@
-package com.musala.drone;
+package ru.idmikhailov.template;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DroneApplicationTests {
+class TemplateApplicationTests {
 
 	@Test
 	void contextLoads() {

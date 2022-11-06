@@ -2,7 +2,7 @@ version: '3'
 
 services:
   app:
-    image: 'drone:0.0.1-SNAPSHOT'
+    image: 'template:0.0.1-SNAPSHOT'
     build:
       context: ./
     container_name: app
@@ -11,9 +11,9 @@ services:
     depends_on:
       - db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/drone
-      - SPRING_DATASOURCE_USERNAME=drone
-      - SPRING_DATASOURCE_PASSWORD=drone
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/template
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=admin
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     tty: true
     stdin_open: true
@@ -25,7 +25,7 @@ services:
     image: 'postgres:latest'
     container_name: db
     healthcheck:
-      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "drone" ]
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "template" ]
       timeout: 45s
       interval: 10s
       retries: 10
@@ -33,11 +33,11 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_USER=drone
-      - POSTGRES_PASSWORD=drone
-      - POSTGRES_DB=drone
-      - APP_DB_USER=drone
-      - APP_DB_PASS=drone
-      - APP_DB_NAME=drone
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=template
+      - APP_DB_USER=template
+      - APP_DB_PASS=template
+      - APP_DB_NAME=template
     volumes:
       - ./init:/docker-entrypoint-initdb.d/

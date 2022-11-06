@@ -4,7 +4,7 @@
     <persistence-units>
       <persistence-unit name="Default">
         <packages>
-          <package value="com.musala.drone" />
+          <package value="ru.idmikhailov.template" />
         </packages>
       </persistence-unit>
     </persistence-units>
